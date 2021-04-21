@@ -16,14 +16,16 @@ import * as Yup from 'yup'
     }
   
     async create(req,res) {
+      let{data} = req.body
+      let dataObj = (Object.keys(data).length > 0)?data:req.body
       try{
-        await  schemaProduto.validate(req.body,{abortEarly:false});
+        await  schemaProduto.validate(dataObj,{abortEarly:false});
         try{
-          let  produto = await this.produtoService.create(req.body);
+          let  produto = await this.produtoService.create(dataObj);
       
           return res.status(200).json({produto:produto,erro:false});    
       }catch(err){
-        return res.status(200).json({'msg':`Erro ao atualizar produto: ${err.message}`,erro:true});
+        return res.status(200).json({'msg':`Erro ao criar produto: ${err.message}`,erro:true});
       }
       }catch(err){
         let errorMessages = {};
@@ -73,11 +75,14 @@ import * as Yup from 'yup'
         return res.status(404).json({'msg':'Produto Não encontrado!',erro:true});
       }
 
+      let{data} = req.body
+      let dataObj = (Object.keys(data).length > 0)?data:req.body
+
       try{
-        await  schemaProduto.validate(req.body,{abortEarly:false});
+        await  schemaProduto.validate(dataObj,{abortEarly:false});
         try{
-        await this.produtoService.update(id,req.body);
-        return res.status(200).json({'msg':'Produto Atualizado com Sucesso! ',erro:false});
+        await this.produtoService.update(id,dataObj);
+        return res.status(200).json({'msg':'Produto Atualizado com Sucesso! ',erro:false,produto:produto});
       }catch(err){
         return res.status(200).json({'msg':`Erro ao atualizar produto: ${err.message}`,erro:true});
       }

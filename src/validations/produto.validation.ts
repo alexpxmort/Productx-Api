@@ -6,7 +6,6 @@ export const schemaProduto =  yup.object().shape({
     descricao:yup.string(),
     preco:yup.number('O campo deve ser númerico').required('O preço é obrigatório'),
     quantidade:yup.number()
-    .required('A quantidade é obrigatório')
-    .positive('A quantidade deve ser um número positivo')
+    .required('A quantidade é obrigatória')
     .integer(),
 });
