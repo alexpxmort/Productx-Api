@@ -1,3 +1,5 @@
+rodar o script de database em scripts o arquivo db.sql
+
 ## Scripts Disponivéis
 
 No diretório do Projeto rodar os seguintes scripts:
