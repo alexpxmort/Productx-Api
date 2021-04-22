@@ -1,6 +1,8 @@
 # Productx-Api
 Uma api de produtos com NodeJs
 
+rodar o script de database em scripts o arquivo db.sql
+
 ## Scripts Disponivéis
 
 No diretório do Projeto rodar os seguintes scripts:
@@ -16,3 +18,4 @@ Para rodar a aplicação
 ### `yarn build ou npm run build`
 
 Para buildar a aplicação
+
