@@ -1,4 +1,10 @@
- class ProdutoUtil{
+/**
+ * Classe de Utilidades da Classe Produto
+ * 
+ */
+
+
+class ProdutoUtil{
     getSituacao(prod){
         let situacao = {nome:'Crítico',cor:'#ff0000'};
         if(prod && prod.hasOwnProperty('quantidade')){

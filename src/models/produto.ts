@@ -1,5 +1,5 @@
 /**
- * Modelo do banco de dados para salvar as informações das jogadas do jogador
+ * Modelo do banco de dados para salvar as informações do produto
  */
 
  const {Model,DataTypes} = require('sequelize');

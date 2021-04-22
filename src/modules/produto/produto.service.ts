@@ -1,3 +1,10 @@
+/**
+ * Service com funções de CRUD de Produtos
+ * 
+ */
+
+
+
 import {produtoDb} from '../../models/produto';
 const ProdutoUtil  = require('../../utils/produto.util')
 import {ICreateProdutoRequestDto } from './dto/create-produto.dto';

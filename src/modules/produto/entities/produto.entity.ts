@@ -1,3 +1,11 @@
+
+
+/**
+ * Entidade de Produto
+ * 
+ */
+
+
 import Produto from '../../../models/produto'
 
 export default class ProdutoEntity {

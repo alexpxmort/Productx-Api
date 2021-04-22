@@ -1,3 +1,9 @@
+/**
+ * Controller de Produto responsável pelas por
+ * responser as resquisições HTTP
+ */
+
+
 import ProdutoService from "../modules/produto/produto.service";
 const ProdutoUtil  = require('../utils/produto.util')
 import {schemaProduto} from '../validations/produto.validation'
@@ -17,7 +23,7 @@ import * as Yup from 'yup'
   
     async create(req,res) {
       let{data} = req.body
-      let dataObj = (Object.keys(data).length > 0)?data:req.body
+      let dataObj = ( data!=undefined && Object.keys(data).length > 0)?data:req.body
       try{
         await  schemaProduto.validate(dataObj,{abortEarly:false});
         try{
@@ -63,7 +69,7 @@ import * as Yup from 'yup'
 
       produto['situacao']  = await ProdutoUtil.getSituacao(produto);
 
-      return res.status(200).json({produto:{produto,error:false}});
+      return res.status(200).json({produto,error:false});
     }
   
     async update(req,res) {
@@ -75,7 +81,8 @@ import * as Yup from 'yup'
       }
 
       let{data} = req.body
-      let dataObj = (Object.keys(data).length > 0)?data:req.body
+
+      let dataObj = ( data!=undefined && Object.keys(data).length > 0)?data:req.body
 
       try{
         await  schemaProduto.validate(dataObj,{abortEarly:false});
