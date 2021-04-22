@@ -23,15 +23,14 @@ import * as Yup from 'yup'
         try{
           let  produto = await this.produtoService.create(dataObj);
       
-          return res.status(200).json({produto:produto,erro:false});    
+          return res.status(200).json({produto:produto,error:false});    
       }catch(err){
-        return res.status(200).json({'msg':`Erro ao criar produto: ${err.message}`,erro:true});
+        return res.status(200).json({'msg':`Erro ao criar produto: ${err.message}`,error:true});
       }
       }catch(err){
         let errorMessages = {};
 
         if(err instanceof Yup.ValidationError){
-          console.log( err)
           err.inner.forEach((error) => {
             errorMessages[error.path] = error.message;
           })
@@ -50,7 +49,7 @@ import * as Yup from 'yup'
         })
       }
 
-      return res.status(200).json({produtos:produtos,erro:false});
+      return res.status(200).json({produtos:produtos,error:false});
     }
   
     async findOne(req,res) {
@@ -59,12 +58,12 @@ import * as Yup from 'yup'
       let produto = await this.produtoService.findOne(id);
 
       if(!produto){
-        return res.status(404).json({'msg':'Produto Não encontrado!',erro:true});
+        return res.status(404).json({'msg':'Produto Não encontrado!',error:true});
       }
 
       produto['situacao']  = await ProdutoUtil.getSituacao(produto);
 
-      return res.status(200).json({produto:{produto,erro:false}});
+      return res.status(200).json({produto:{produto,error:false}});
     }
   
     async update(req,res) {
@@ -72,7 +71,7 @@ import * as Yup from 'yup'
       let produto = await this.produtoService.findOne(id);
 
       if(!produto){
-        return res.status(404).json({'msg':'Produto Não encontrado!',erro:true});
+        return res.status(404).json({'msg':'Produto Não encontrado!',error:true});
       }
 
       let{data} = req.body
@@ -82,9 +81,9 @@ import * as Yup from 'yup'
         await  schemaProduto.validate(dataObj,{abortEarly:false});
         try{
         await this.produtoService.update(id,dataObj);
-        return res.status(200).json({'msg':'Produto Atualizado com Sucesso! ',erro:false,produto:produto});
+        return res.status(200).json({'msg':'Produto Atualizado com Sucesso! ',error:false,produto:produto});
       }catch(err){
-        return res.status(200).json({'msg':`Erro ao atualizar produto: ${err.message}`,erro:true});
+        return res.status(200).json({'msg':`error ao atualizar produto: ${err.message}`,error:true});
       }
       }catch(err){
         let errorMessages = {};
@@ -104,14 +103,14 @@ import * as Yup from 'yup'
       let produto = await this.produtoService.findOne(id);
 
       if(!produto){
-        return res.status(404).json({'msg':'Produto Não encontrado!',erro:true});
+        return res.status(404).json({'msg':'Produto Não encontrado!',error:true});
       }
 
       try{
         await this.produtoService.remove(id);
-        return res.status(200).json({'msg':'Produto deletado Com Sucesso!',erro:false});
+        return res.status(200).json({'msg':'Produto deletado Com Sucesso!',error:false});
       }catch(err){
-        return res.status(200).json({'msg':`Erro ao deletar produto: ${err.message}`,erro:true});
+        return res.status(200).json({'msg':`Erro ao deletar produto: ${err.message}`,error:true});
       }
     }
   }
