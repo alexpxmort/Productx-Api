@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import './header.styles.scss';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { connect } from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -10,6 +10,8 @@ import UserContext from '../../contexts/user/userContext';
 import { Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../redux/actions/AuthAction';
+import { AccountCircle } from '@material-ui/icons';
+
 
 
 const Header = ({history}) => {
@@ -32,7 +34,7 @@ const Header = ({history}) => {
 				<Logo className="logo" />
 			</div>
 			<div className="options">
-				<cartIconContext.Provider value={{
+			<cartIconContext.Provider value={{
                 hidden,
                 toggleHidden,
                 isMovie,
@@ -44,8 +46,17 @@ const Header = ({history}) => {
 				{
 					(currentUser)?(
 						<div style={{flexDirection:'row',display:'flex',justifyContent:	'center'}}>
-							<div style={{marginTop:10}}>{currentUser.name}</div>
-							<Button variant={'filled'} onClick={_signOut}>LOG OUT </Button>
+							<div style={{marginTop:10,marginRight:15}}>{currentUser.name}</div>
+
+							<Button
+							startIcon={<AccountCircle />}
+							variant="outlined"
+							color="inherit"
+							style={{marginRight:10}}
+							onClick={()=>_signOut()}
+						>
+							LOG OUT{' '}
+						</Button>
 						</div>
 					):<div/>
 				}
@@ -54,6 +65,5 @@ const Header = ({history}) => {
 	);
 };
 
-const mapDispatchToProps = (dispatch) => ({
-});
-export default withRouter(connect(null, mapDispatchToProps)(Header));
+
+export default withRouter(connect(null, {})(Header));

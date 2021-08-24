@@ -18,13 +18,11 @@ const App = ({ currentUser }) => {
 	return (
 		<div>
 			<GlobalStyle />
-
-      	<UserContext.Provider value={currentUser}>
-        {currentUser ? (
-					<Header/>
-				) : null}
+			<UserContext.Provider value={currentUser}>
+			{currentUser ? (
+						<Header/>
+					) : null}
 			</UserContext.Provider>
-     
 			<Router />
 		</div>
 	);

@@ -2,13 +2,24 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Shop from '../pages/shop/shop.component';
 import SignInPage from '../pages/sign-in-page/sign-in-page.component';
+import {selectCurrentUser} from '../redux/selectors/auth.selector';
 
 export default class Router extends Component {
 	render() {
 		return (
 			<div>
 				<Switch>
-                    <Route exact component={SignInPage} path={'/'}/>
+                    <Route exact 
+					 path={'/'}
+					 render={() =>
+							this.props.currentUser ? (
+								<Redirect to="/" />
+							) : (
+								<SignInPage />
+							)
+						}
+
+					 />
 					<Route component={Shop} path="/shop" />
 				</Switch>
 			</div>
@@ -16,3 +27,8 @@ export default class Router extends Component {
 	}
 }
 
+
+const mapStateToProps = createStructuredSelector({
+	currentUser: selectCurrentUser,
+});
+export default connect(mapStateToProps, {})(Router);

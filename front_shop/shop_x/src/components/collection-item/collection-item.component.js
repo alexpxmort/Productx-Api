@@ -29,7 +29,7 @@ import {addItem} from  '../../redux/actions/CartAction'
         {
 
                 <CustomButton onClick={() => addItem(item)}>
-                Add to cart
+                Adicionar ao carrinho
               </CustomButton>
         }
       

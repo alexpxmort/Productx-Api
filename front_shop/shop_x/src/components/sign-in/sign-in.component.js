@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {FormInput} from '../form-input/form-input.component.js';
 import './sign-in.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
+import Message from '../msg_alerts/msg-alerts.component';
 import {connect} from 'react-redux';
 import { sign } from '../../redux/actions/AuthAction.js';
 import {withRouter} from 'react-router-dom';
@@ -21,7 +22,7 @@ import { USER, validateCredentials } from '../../validations/auth.js';
 
             history.push('/shop');
         }else{
-            alert('Credenciais Inválidas!')
+            Message('Credenciais Inválidas!','warning');
         }
     
     }
@@ -63,12 +64,8 @@ import { USER, validateCredentials } from '../../validations/auth.js';
         )
 }
 
-
-
-
 const mapDispatchToProps = dispatch =>({
     sign:(userCredentials)=>dispatch(sign(userCredentials)),    
 });
-
 
 export default withRouter(connect(null,mapDispatchToProps)(SignIn))
