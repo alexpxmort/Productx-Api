@@ -38,7 +38,7 @@ const CartDropDown = ({cartItems,currentUser,total}) =>{
                             <div key={idx}>
                              <span>Nome: {cartItem.name}</span><br/>
                              <span>Preço: ${cartItem.price}</span><br/>
-                             <span>Quantidade: ${cartItem.quantity}</span>
+                             <span>Quantidade: {cartItem.quantity}</span>
                             </div>
                         ))
                     }
@@ -61,7 +61,7 @@ const CartDropDown = ({cartItems,currentUser,total}) =>{
                         setDisplay('none')
                         setStyle({width: 800, height: 800,margin:0,padding:0})
                         setStyleCartItems({display:'none'})
-                        setStyleItems({display:'block'})
+                        setStyleItems({display:'block',marginRight:40})
                         setTimeout(()=>{
                             toPdf()
                         },2000)
