@@ -24,5 +24,6 @@ describe ('#AddForm', () => {
     form.simulate('submit',{preventDefault(){}});
 
     expect(_handleSubmit).toHaveBeenCalled();
+    expect(wrapper).toMatchSnapshot();
   })
 }); 

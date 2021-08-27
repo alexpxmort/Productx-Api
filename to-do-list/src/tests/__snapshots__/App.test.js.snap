@@ -1,26 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test 1 sds 1`] = `
-<div>
-  <ForwardRef
-    initialData={
-      Object {
-        "name": "",
-      }
+exports[`#AddForm Submit the form correctly 1`] = `
+<ForwardRef
+  id="addForm"
+  initialData={
+    Object {
+      "name": "",
     }
+  }
+  onSubmit={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "preventDefault": [Function],
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <InputCustom
+    className="custom-input"
+    name="name"
+    placeholder="Name"
+  />
+  <WithStyles(ForwardRef(Button))
+    color="primary"
+    type="submit"
+    variant="contained"
   >
-    <InputCustom
-      name="name"
-      placeholder="Name"
-    />
-    <WithStyles(ForwardRef(Button))
-      color="primary"
-      type="submit"
-      variant="contained"
-    >
-      <Memo(ForwardRef(AddIcon)) />
-        Salvar
-    </WithStyles(ForwardRef(Button))>
-  </ForwardRef>
-</div>
+    <Memo(ForwardRef(AddIcon)) />
+      Salvar
+  </WithStyles(ForwardRef(Button))>
+</ForwardRef>
 `;
