@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test 1 sds 1`] = `
+<div>
+  <ForwardRef
+    initialData={
+      Object {
+        "name": "",
+      }
+    }
+  >
+    <InputCustom
+      name="name"
+      placeholder="Name"
+    />
+    <WithStyles(ForwardRef(Button))
+      color="primary"
+      type="submit"
+      variant="contained"
+    >
+      <Memo(ForwardRef(AddIcon)) />
+        Salvar
+    </WithStyles(ForwardRef(Button))>
+  </ForwardRef>
+</div>
+`;
