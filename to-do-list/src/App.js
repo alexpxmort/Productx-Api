@@ -1,9 +1,12 @@
-import './App.css';
+import { GlobalStyle } from './global.styles';
 import AddToDoPage from './pages/AddToDo';
 
 function App() {
   return (
-   <AddToDoPage/>
+   <div>
+     <GlobalStyle/>
+     <AddToDoPage/>
+   </div>
   );
 }
 

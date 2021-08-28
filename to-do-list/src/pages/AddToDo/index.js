@@ -5,6 +5,8 @@ import {uuid} from 'uuidv4';
 import ListToDo from '../../components/ListToDo';
 import { schemaToDo } from '../../validations/addToDo.validation';
 import * as Yup from 'yup';
+import { getStyles } from '../../utils/screen';
+
 
 const AddToDoPage = () => {
 
@@ -69,7 +71,6 @@ const AddToDoPage = () => {
     }
 
     const updateToDo = (obj,newObj) =>{
-        debugger;
         tasks.forEach((val)=>{
             if(val.id === obj.id){
                 val.name = newObj.name
@@ -115,7 +116,7 @@ const AddToDoPage = () => {
        <Grid
        container
        spacing={10}
-       style={{padding:'24px',marginLeft:'25rem'}}
+       style={getStyles()}
        >
         <Grid
         item
