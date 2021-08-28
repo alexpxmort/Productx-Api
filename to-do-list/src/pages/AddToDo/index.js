@@ -6,12 +6,16 @@ import ListToDo from '../../components/ListToDo';
 import { schemaToDo } from '../../validations/addToDo.validation';
 import * as Yup from 'yup';
 import { getStyles } from '../../utils/screen';
+import { isEmpty } from '../../utils/string.utils';
 
 
 const AddToDoPage = () => {
 
-    let json = JSON.parse(localStorage.getItem('tasks'));
-    const [tasks,setTasks] = useState(json || []);
+    let json = [];
+    if(!isEmpty(localStorage.getItem('tasks'))){
+        json = JSON.parse(localStorage.getItem('tasks'));
+    }
+    const [tasks,setTasks] = useState(json);
     const [finishedTask,setFinishedTask] = useState(false);
     const [task,setTask] = useState(null);
     const [isEditing,setIsEditing] = useState(false);
