@@ -4,5 +4,9 @@
     ],
     "snapshotSerializers":[
         "enzyme-to-json/serializer"
-    ]
+    ],
+    "moduleNameMapper": {
+        "^.+\\.(css|less|scss)$": "babel-jest"
+      }
 }
+   

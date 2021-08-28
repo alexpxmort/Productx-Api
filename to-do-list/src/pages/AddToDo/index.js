@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core';
 import React,{useState,useRef} from 'react'
 import AddForm from '../../components/AddForm';
 import {uuid} from 'uuidv4';
-import ListToDoPage from '../ListToDo';
+import ListToDo from '../../components/ListToDo';
 import { schemaToDo } from '../../validations/addToDo.validation';
 import * as Yup from 'yup';
 
@@ -121,10 +121,10 @@ const AddToDoPage = () => {
         item
         xs={12} sm={6} md={4} xl={3}
         >
-            <AddForm ref={formRef} handleSubmit={submit} />
+            <AddForm id='formComponent' ref={formRef} handleSubmit={submit} />
            {
                (!finishedTask)?(
-                <ListToDoPage items={tasks} edit={edit} deleteProp={removeToDo} complete={completeToDo} />
+                <ListToDo id='listComponent' items={tasks} edit={edit} deleteProp={removeToDo} complete={completeToDo} />
                ):<div/>
            }
         </Grid>

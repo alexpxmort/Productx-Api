@@ -27,8 +27,8 @@ export const InputCustom = ({
 
   return (
 		<div>
-			  <FormGroup style={{marginTop: 10, marginBottom: 10, width: 500}}>
-            <TextField label={label} variant={variant} defaultValue={defaultValue} {...otherProps} inputRef={inputRef} />
+			  <FormGroup  style={{marginTop: 10, marginBottom: 10, width: 500}}>
+            <TextField  label={label} variant={variant} defaultValue={defaultValue} {...otherProps} inputRef={inputRef} />
      </FormGroup>
 				{error && <Alert severity="warning">{error}</Alert>}
 		</div>

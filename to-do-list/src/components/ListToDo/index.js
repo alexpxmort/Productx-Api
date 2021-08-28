@@ -7,19 +7,20 @@ import RemoveIcon from '@material-ui/icons/Delete';
 
 
 
-export default function ListToDoPage({items,edit,complete,deleteProp}) {
+export default function ListToDo({items,edit,complete,deleteProp}) {
 
     return (
        <Grid
+       id='grid_container_items'
        style={{paddingTop:'1rem'}}
        >
             {
                 items.map((val,idx)=>(
                     <div key={idx} className={`item ${val.completed ? "completed":""}`}>
                        <span>{val.name}</span>
-                       <CheckCircleIcon style={{color:'#ff6c6c'}} onClick={() => complete(val)}/>
-                       <EditIcon onClick={() => edit(val)}/>
-                       <RemoveIcon onClick={() => deleteProp(val)}/>
+                       <CheckCircleIcon className='check' style={{color:'#ff6c6c'}} onClick={() => complete(val)}/>
+                       <EditIcon className='edit' onClick={() => edit(val)}/>
+                       <RemoveIcon className='remove' onClick={() => deleteProp(val)}/>
                     </div>
                 ))
             }

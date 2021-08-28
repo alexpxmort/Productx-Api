@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`#AddForm Submit the form correctly 1`] = `
+exports[`#Components #AddForm Submit the form correctly 1`] = `
 <ForwardRef
   id="addForm"
   initialData={
