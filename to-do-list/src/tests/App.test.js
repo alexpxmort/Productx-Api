@@ -132,12 +132,6 @@ describe ('#Pages', () => {
       let listComponent = wrapper.find('#listComponent');
       expect(listComponent).toHaveLength(1);
 
-      const container = listComponent.dive().find('#grid_container_items');
-
-      expect(container).toHaveLength(1);
-
-      expect(container.children()).toHaveLength(2);
-
     })
   });
 });
