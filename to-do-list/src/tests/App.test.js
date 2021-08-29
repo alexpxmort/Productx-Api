@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {uuid} from 'uuidv4';
+import {uuid as v4} from 'uuidv4';
 import AddForm from '../components/AddForm';
 import { InputCustom } from '../components/input-custom';
 import { Form } from '@unform/web';
@@ -48,14 +48,14 @@ describe ('#Components', () => {
       const _edit = jest.fn();
       const items = [
         {
-          id:uuid(),
+          id:v4(),
           name:'Teste',
           created_at:new Date(),
           updated_at:new Date(),
           completed:false
         },
         {
-          id:uuid(),
+          id:v4(),
           name:'Teste 2',
           created_at:new Date(),
           updated_at:new Date(),
@@ -107,14 +107,14 @@ describe ('#Pages', () => {
     it('Renders the ListToDo correctly',() => {
       const items = [
         {
-          id:uuid(),
+          id:v4(),
           name:'Teste',
           created_at:new Date(),
           updated_at:new Date(),
           completed:false
         },
         {
-          id:uuid(),
+          id:v4(),
           name:'Teste 2',
           created_at:new Date(),
           updated_at:new Date(),

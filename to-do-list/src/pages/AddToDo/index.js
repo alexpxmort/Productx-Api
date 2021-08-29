@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import React,{useState,useRef} from 'react'
 import AddForm from '../../components/AddForm';
-import {uuid} from 'uuidv4';
+import {uuid as v4} from 'uuidv4';
 import ListToDo from '../../components/ListToDo';
 import { schemaToDo } from '../../validations/addToDo.validation';
 import * as Yup from 'yup';
@@ -57,7 +57,7 @@ const AddToDoPage = () => {
     const addToDo  = async (data)=>{
         let newTask = {
             ...data,
-            id:uuid(),
+            id:v4(),
             completed:false,
             created_at:new Date(),
             updated_at:new Date()
