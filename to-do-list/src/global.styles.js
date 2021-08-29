@@ -7,15 +7,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    font-family:'Open Sans Condensed';
+    font-family: 'Roboto', sans-serif;
+    font:100%;
+    font-size:1.25em;
     @media screen and (max-width: 800px) {
         padding: 10px;
     }
-		background-color:#D1B277;
+		background-color:${props => props.theme.colors.primary};;
   }
 
   *{
-      box-sizing:border-box;
+    box-sizing:border-box;
 	  padding:0;
 	  margin:0;
   }
