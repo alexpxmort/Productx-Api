@@ -2,20 +2,20 @@
 ## Execução do projeto
 
 
-Rode os comandos em ordem
+Rode os comandos abaixo em ordem:
 
 `yarn install ou npm install`
-E após finalizado rode
+e após finalizado rode
 
 `yarn start ou npm start`
 
-Para iniciar o Projeto
+Para iniciar o Projeto.
 
 ## Scripts Disponíveis
 
 ### `yarn install ou npm install`
 
-Para instalar as dependências do Projeto
+Para instalar as dependências do Projeto.
 
 ### `yarn start ou npm start`
 
